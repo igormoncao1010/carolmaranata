@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Carol Maranata - Deputada Federal | Maranhão 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f0f4f8;
+            color: #1e2a3a;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary: #3780C1;
+            --primary-dark: #2a669b;
+            --primary-light: #5c9ad1;
+            --white: #ffffff;
+            --soft-blue: #e8f0f9;
+            --border-light: #d4e0ec;
+            --text-dark: #1e3a4d;
+            --text-soft: #4a627a;
+            --shadow-sm: 0 8px 20px rgba(55, 128, 193, 0.1);
+        }
+
+        /* menu azul #3780C1 */
+        .menu {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #3780C1;
+            padding: 14px 32px;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .menu-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-image {
+            height: 52px;
+            width: auto;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-image img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+            transition: transform 0.2s ease;
+        }
+
+        .logo-image img:hover {
+            transform: scale(1.02);
+        }
+
+        .music-button {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            color: white;
+            font-size: 18px;
+        }
+
+        .music-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.02);
+        }
+
+        /* HERO COM EFEITO MOUSE */
+        .hero-section {
+            margin-top: 74px;
+            width: 100%;
+            height: 88vh;
+            min-height: 580px;
+            position: relative;
+            overflow: hidden;
+            cursor: none;
+            background: #1a4a6e;
+        }
+
+        .image-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: opacity 0.4s ease;
+        }
+
+        .front-image-desktop {
+            background-image: url('03.png');
+            z-index: 1;
+            opacity: 1;
+        }
+
+        .back-image-desktop {
+            background-image: url('04.png');
+            z-index: 2;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .front-image-mobile {
+            background-image: url('01.png');
+            z-index: 1;
+            opacity: 1;
+            display: none;
+        }
+
+        .back-image-mobile {
+            background-image: url('02.png');
+            z-index: 2;
+            opacity: 0;
+            pointer-events: none;
+            display: none;
+        }
+
+        .water-cursor {
+            position: absolute;
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.1) 60%, transparent 85%);
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            pointer-events: none;
+            z-index: 5;
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 0;
+            transition: opacity 0.2s;
+            box-shadow: 0 0 25px rgba(55, 128, 193, 0.5);
+        }
+
+        .cursor-halo {
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 4;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            background: radial-gradient(circle, rgba(55, 128, 193, 0.25) 0%, rgba(55, 128, 193, 0.08) 70%, transparent 95%);
+            filter: blur(5px);
+        }
+
+        @media (min-width: 769px) {
+            .front-image-desktop { display: block; }
+            .back-image-desktop { display: block; }
+            .front-image-mobile { display: none; }
+            .back-image-mobile { display: none; }
+        }
+
+        @media (max-width: 768px) {
+            .front-image-desktop { display: none; }
+            .back-image-desktop { display: none; }
+            .front-image-mobile { display: block; }
+            .back-image-mobile { display: block; }
+            .hero-section { height: 70vh; min-height: 500px; }
+            .water-cursor { width: 80px; height: 80px; }
+            .cursor-halo { width: 120px; height: 120px; }
+        }
+
+        /* SEÇÃO BIOGRAFIA - sem quadrado azul, textos justificados */
+        .bio-section {
+            padding: 80px 24px;
+            max-width: 1280px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+
+        .bio-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .bio-container {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            background: var(--white);
+            border-radius: 48px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+        }
+
+        .bio-image {
+            flex: 1;
+            min-height: 480px;
+            background-size: cover;
+            background-position: center;
+            background-image: url('05.png');
+            border-radius: 0 32px 32px 0;
+        }
+
+        .bio-content {
+            flex: 1;
+            padding: 48px 48px 48px 0;
+        }
+
+        .bio-content h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .bio-content .tag {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-bottom: 24px;
+        }
+
+        .bio-content p {
+            color: var(--text-dark);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            text-align: justify;
+        }
+
+        .bio-highlight {
+            background: var(--soft-blue);
+            padding: 20px 24px;
+            border-radius: 24px;
+            margin-top: 24px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .bio-highlight p {
+            text-align: justify;
+            font-style: italic;
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 900px) {
+            .bio-container { flex-direction: column; border-radius: 32px; }
+            .bio-image { width: 100%; min-height: 380px; border-radius: 32px 32px 0 0; background-position: center 20%; }
+            .bio-content { padding: 32px; }
+            .bio-content h2 { font-size: 1.8rem; }
+        }
+
+        /* seções gerais com animação scroll */
+        .section {
+            padding: 80px 24px;
+            max-width: 1280px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.4rem;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+            color: var(--primary);
+        }
+
+        .section-sub {
+            text-align: center;
+            color: var(--text-soft);
+            margin-bottom: 3rem;
+            font-size: 1rem;
+        }
+
+        /* GALERIA */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 28px;
+        }
+
+        .gallery-item {
+            border-radius: 28px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.35s ease;
+            aspect-ratio: 4 / 3;
+            background: var(--white);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 30px -12px rgba(55, 128, 193, 0.25);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.02);
+        }
+
+        .gallery-caption {
+            padding: 16px 20px;
+            background: var(--white);
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--primary-dark);
+            border-top: 1px solid var(--border-light);
+            text-align: center;
+        }
+
+        /* NOTICIAS */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 32px;
+        }
+
+        .news-card {
+            background: var(--white);
+            border-radius: 28px;
+            overflow: hidden;
+            transition: all 0.3s;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .news-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 30px -12px rgba(55, 128, 193, 0.2);
+        }
+
+        .news-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .news-content {
+            padding: 24px;
+        }
+
+        .news-date {
+            font-size: 0.7rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .news-title {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            font-weight: 600;
+            color: var(--primary-dark);
+        }
+
+        .news-excerpt {
+            color: var(--text-soft);
+            line-height: 1.5;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            text-align: justify;
+        }
+
+        .read-more {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.2s;
+        }
+
+        .read-more:hover {
+            gap: 10px;
+        }
+
+        .lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.25s;
+        }
+
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .lightbox-img {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 24px;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 28px;
+            right: 36px;
+            font-size: 2.5rem;
+            color: white;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* FOOTER ESCURO COM FONTES CLARAS */
+        .footer {
+            background: #0f172a;
+            text-align: center;
+            padding: 48px 24px 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #cbd5e1;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .footer p {
+            margin-bottom: 12px;
+        }
+
+        .footer .credit {
+            margin-top: 20px;
+            font-size: 0.85rem;
+            letter-spacing: 0.3px;
+        }
+
+        .footer .credit a {
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            animation: pulseRed 1.2s ease-in-out infinite;
+            transition: all 0.2s;
+        }
+
+        .footer .credit a:hover {
+            animation: none;
+            transform: scale(1.05);
+            text-shadow: 0 0 8px rgba(255, 100, 100, 0.5);
+        }
+
+        @keyframes pulseRed {
+            0%, 100% {
+                color: #ff6b6b;
+                text-shadow: 0 0 2px rgba(255, 107, 107, 0.5);
+            }
+            50% {
+                color: #ffd966;
+                text-shadow: 0 0 6px rgba(255, 217, 102, 0.8);
+            }
+        }
+
+        /* Botão flutuante do WhatsApp com ícone */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            background: #25D366;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+            z-index: 1100;
+            transition: 0.2s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.08);
+            background: #20b859;
+        }
+
+        .whatsapp-float svg {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+
+        @media (max-width: 768px) {
+            .menu { padding: 12px 20px; }
+            .logo-image { height: 44px; }
+            .section { padding: 60px 20px; }
+            .section-title { font-size: 1.9rem; }
+            .bio-section { padding: 60px 20px; }
+            .footer { padding: 36px 20px 28px; }
+            .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 20px; }
+            .whatsapp-float svg { width: 26px; height: 26px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="menu">
+        <div class="menu-content">
+            <div class="logo-image">
+                <img src="logo.png" alt="Carol Maranata" onerror="this.src='https://placehold.co/200x60/3780C1/white?text=Carol+Maranata'">
+            </div>
+            <button class="music-button" id="musicToggleBtn">▶</button>
+        </div>
+    </nav>
+
+    <!-- Hero com efeito mouse -->
+    <div class="hero-section" id="heroSection">
+        <div class="image-layer front-image-desktop" id="frontImageDesktop"></div>
+        <div class="image-layer back-image-desktop" id="backImageDesktop"></div>
+        <div class="image-layer front-image-mobile" id="frontImageMobile"></div>
+        <div class="image-layer back-image-mobile" id="backImageMobile"></div>
+        <div class="water-cursor" id="waterCursor"></div>
+        <div class="cursor-halo" id="cursorHalo"></div>
+    </div>
+
+    <!-- SEÇÃO QUEM É CAROL MARANATA - sem quadrado azul, textos justificados -->
+    <section class="bio-section" id="bioSection">
+        <div class="bio-container">
+            <div class="bio-image"></div>
+            <div class="bio-content">
+                <span class="tag">Conheça Carol</span>
+                <h2>Carol Maranata</h2>
+                <p>Carol Maranata é uma mulher do povo, nascida e criada no interior do Maranhão. Pela primeira vez candidata a Deputada Federal, sua trajetória é marcada pelo trabalho voluntário em comunidades, pelo apoio a pequenos negócios e pela escuta ativa das necessidades da população maranhense.</p>
+                <p>Sem nunca ter ocupado cargos públicos, Carol representa a força da sociedade civil organizada. Acredita que a política deve ser feita com transparência, empatia e compromisso real com quem mais precisa. Sua candidatura nasce do desejo de levar para o Congresso Nacional a voz de quem sempre foi esquecido.</p>
+                <div class="bio-highlight">
+                    <p>"Não sou política profissional, sou uma maranhense que cansou de esperar. Chegou a hora de gente nova, com coragem e honestidade, fazer a diferença em Brasília." — Carol Maranata</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERIA DE FOTOS -->
+    <section class="section" id="galeria">
+        <h2 class="section-title">Galeria de Fotos</h2>
+        <p class="section-sub">Caminhada com o povo maranhense</p>
+        <div class="gallery-grid" id="galleryContainer"></div>
+    </section>
+
+    <!-- ÚLTIMAS NOTÍCIAS -->
+    <section class="section" id="noticias">
+        <h2 class="section-title">Últimas Notícias</h2>
+        <p class="section-sub">Acompanhe a campanha de Carol Maranata</p>
+        <div class="news-grid" id="newsContainer"></div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="closeLightbox">&times;</button>
+        <img class="lightbox-img" id="lightboxImg" src="" alt="">
+    </div>
+
+    <!-- FOOTER ESCURO COM CRÉDITO PULSANTE -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Carol Maranata 2026 - Deputada Federal | 💙 Primeira vez, mas com muita determinação</p>
+            <p style="margin-top: 8px;">Comitê Carol Maranata • @carolmaranata_oficial</p>
+            <div class="credit">
+                Criado por 
+                <a href="https://www.behance.net/igorfermon/projects" target="_blank" style="color: #ff6b6b; text-decoration: none;">Igor Monção</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão flutuante do WhatsApp com ícone SVG -->
+    <a href="https://wa.me/5598999999999?text=Olá!%20Quero%20apoiar%20Carol%20Maranata%202026" class="whatsapp-float" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16.75 13.96c.25.13.41.2.46.3.06.11.04.61-.21 1.18-.2.56-1.24 1.1-1.7 1.12-.46.02-.47.36-2.96-.73-2.49-1.09-3.99-3.75-4.11-3.92-.12-.17-.96-1.38-.92-2.61.05-1.22.69-1.8.95-2.04.24-.26.51-.29.68-.26h.47c.15 0 .36-.06.55.45l.69 1.87c.06.13.1.28.01.44l-.27.41-.39.42c-.12.12-.26.25-.12.5.12.26.62-1.09 1.32-1.78.91-.88 1.71-1.17 1.95-1.3.24-.14.39-.12.54-.04l.81-.94c.19-.25.35-.19.58-.11l1.67.88M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10c-1.97 0-3.8-.57-5.35-1.55L2 22l1.55-4.65A9.96 9.96 0 0 1 2 12 10 10 0 0 1 12 2m0 2a8 8 0 0 0-8 8c0 1.72.54 3.31 1.46 4.61L4.5 19.5l2.89-.96A7.95 7.95 0 0 0 12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8z"/>
+        </svg>
+    </a>
+
+    <!-- ÁUDIO LOCAL jingle.mp3 -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="jingle.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        (function() {
+            // Galeria de fotos
+            const galleryImages = [
+                { src: "https://images.pexels.com/photos/7095503/pexels-photo-7095503.jpeg?auto=compress&cs=tinysrgb&w=800", caption: "Carol em encontro com lideranças comunitárias" },
+                { src: "https://images.pexels.com/photos/7697263/pexels-photo-7697263.jpeg?auto=compress&cs=tinysrgb&w=800", caption: "Diálogo aberto nas ruas de São Luís" },
+                { src: "https://images.pexels.com/photos/3874210/pexels-photo-3874210.jpeg?auto=compress&cs=tinysrgb&w=800", caption: "Carol ao lado de jovens maranhenses" },
+                { src: "https://images.pexels.com/photos/7567434/pexels-photo-7567434.jpeg?auto=compress&cs=tinysrgb&w=800", caption: "Caravana da Esperança no interior" },
+                { src: "https://images.pexels.com/photos/5669602/pexels-photo-5669602.jpeg?auto=compress&cs=tinysrgb&w=800", caption: "Encontro com mulheres empreendedoras" },
+                { src: "https://images.pexels.com/photos/6256126/pexels-photo-6256126.jpeg?auto=compress&cs=tinysrgb&w=800", caption: "Mobilização em Imperatriz" }
+            ];
+
+            // NOTÍCIAS FOCADAS NA CAMPANHA DE PRIMEIRA VEZ
+            const newsData = [
+                {
+                    img: "06.png",
+                    date: "20 de Março, 2026",
+                    title: "Carol Maranata oficializa candidatura: 'Uma nova esperança para o Maranhão'",
+                    excerpt: "Pela primeira vez na disputa por uma vaga na Câmara Federal, Carol Maranata registrou sua candidatura com o apoio de mais de 50 movimentos sociais. 'Estou aqui para representar quem nunca teve voz', declarou."
+                },
+                {
+                    img: "https://images.pexels.com/photos/6457565/pexels-photo-6457565.jpeg?auto=compress&cs=tinysrgb&w=800",
+                    date: "12 de Março, 2026",
+                    title: "Comitê jovem se multiplica: mais de 3 mil voluntários se inscrevem",
+                    excerpt: "A campanha de estreia de Carol Maranata tem mobilizado a juventude maranhense. Em menos de um mês, voluntários organizam atos e ações solidárias em 15 cidades do estado."
+                },
+                {
+                    img: "https://portalcorreio.com.br/portalcorreio/wp-content/uploads/2019/08/emprego.jpg",
+                    date: "5 de Março, 2026",
+                    title: "Carol lança plataforma 'Maranhão de Primeira' com propostas inovadoras",
+                    excerpt: "A candidata, que disputa seu primeiro mandato, apresentou eixos prioritários: geração de emprego, educação de qualidade e saúde preventiva. 'Vamos fazer diferente, sem velhos vícios', destacou."
+                }
+            ];
+
+            const galleryContainer = document.getElementById('galleryContainer');
+            function renderGallery() {
+                galleryContainer.innerHTML = '';
+                galleryImages.forEach((item) => {
+                    const div = document.createElement('div');
+                    div.className = 'gallery-item';
+                    const img = document.createElement('img');
+                    img.src = item.src;
+                    img.alt = item.caption;
+                    img.loading = 'lazy';
+                    const cap = document.createElement('div');
+                    cap.className = 'gallery-caption';
+                    cap.innerText = item.caption;
+                    div.appendChild(img);
+                    div.appendChild(cap);
+                    div.addEventListener('click', () => openLightbox(item.src));
+                    galleryContainer.appendChild(div);
+                });
+            }
+
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            const closeLightboxBtn = document.getElementById('closeLightbox');
+            function openLightbox(src) {
+                lightboxImg.src = src;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+            function closeLightboxFn() {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+                lightboxImg.src = '';
+            }
+            closeLightboxBtn.addEventListener('click', closeLightboxFn);
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) closeLightboxFn();
+            });
+
+            const newsContainer = document.getElementById('newsContainer');
+            function renderNews() {
+                newsContainer.innerHTML = '';
+                newsData.forEach((item) => {
+                    const article = document.createElement('article');
+                    article.className = 'news-card';
+                    article.innerHTML = `
+                        <img class="news-img" src="${item.img}" alt="notícia" loading="lazy">
+                        <div class="news-content">
+                            <div class="news-date">📅 ${item.date}</div>
+                            <h3 class="news-title">${item.title}</h3>
+                            <p class="news-excerpt">${item.excerpt}</p>
+                            <a href="#" class="read-more">Ler matéria completa →</a>
+                        </div>
+                    `;
+                    const readLink = article.querySelector('.read-more');
+                    readLink.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        alert(`💙 ${item.title}\nAcesse nosso site oficial para mais informações sobre a campanha de Carol Maranata.`);
+                    });
+                    newsContainer.appendChild(article);
+                });
+            }
+
+            // ========== EFEITO MOUSE HERO ==========
+            const hero = document.getElementById('heroSection');
+            const frontDesktop = document.getElementById('frontImageDesktop');
+            const backDesktop = document.getElementById('backImageDesktop');
+            const frontMobile = document.getElementById('frontImageMobile');
+            const backMobile = document.getElementById('backImageMobile');
+            const waterCursor = document.getElementById('waterCursor');
+            const cursorHalo = document.getElementById('cursorHalo');
+            
+            let mouseX = 0, mouseY = 0, smoothX = 0, smoothY = 0;
+            let isHovering = false, animFrame = null;
+
+            function getCurrentImages() {
+                const isMobile = window.innerWidth <= 768;
+                if (isMobile) return { front: frontMobile, back: backMobile };
+                return { front: frontDesktop, back: backDesktop };
+            }
+
+            function updateReveal() {
+                if (!isHovering) return;
+                const { back } = getCurrentImages();
+                if (!back) return;
+                const radius = 180;
+                const maskGradient = `radial-gradient(circle ${radius}px at ${smoothX}px ${smoothY}px, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.85) 30%, transparent 70%)`;
+                back.style.maskImage = maskGradient;
+                back.style.webkitMaskImage = maskGradient;
+                back.style.opacity = '1';
+            }
+
+            function animateCursor() {
+                if (!hero) return;
+                const dx = mouseX - smoothX, dy = mouseY - smoothY;
+                smoothX += dx * 0.12;
+                smoothY += dy * 0.12;
+                waterCursor.style.left = `${smoothX}px`;
+                waterCursor.style.top = `${smoothY}px`;
+                cursorHalo.style.left = `${smoothX}px`;
+                cursorHalo.style.top = `${smoothY}px`;
+                if (isHovering) updateReveal();
+                animFrame = requestAnimationFrame(animateCursor);
+            }
+
+            function onMouseMove(e) {
+                const rect = hero.getBoundingClientRect();
+                let x = e.clientX - rect.left, y = e.clientY - rect.top;
+                x = Math.min(Math.max(x, 0), rect.width);
+                y = Math.min(Math.max(y, 0), rect.height);
+                mouseX = x; mouseY = y;
+                if (!isHovering) {
+                    isHovering = true;
+                    waterCursor.style.opacity = '0.7';
+                    cursorHalo.style.opacity = '0.5';
+                    const { back } = getCurrentImages();
+                    if (back) back.style.opacity = '1';
+                }
+            }
+
+            function onMouseLeave() {
+                isHovering = false;
+                waterCursor.style.opacity = '0';
+                cursorHalo.style.opacity = '0';
+                const { back } = getCurrentImages();
+                if (back) {
+                    back.style.maskImage = 'none';
+                    back.style.webkitMaskImage = 'none';
+                    back.style.opacity = '0';
+                }
+            }
+
+            function onMouseEnter(e) {
+                const rect = hero.getBoundingClientRect();
+                let x = e.clientX - rect.left, y = e.clientY - rect.top;
+                x = Math.min(Math.max(x, 0), rect.width);
+                y = Math.min(Math.max(y, 0), rect.height);
+                mouseX = x; mouseY = y;
+                smoothX = x; smoothY = y;
+                isHovering = true;
+                waterCursor.style.opacity = '0.7';
+                cursorHalo.style.opacity = '0.5';
+                const { back } = getCurrentImages();
+                if (back) { back.style.opacity = '1'; updateReveal(); }
+            }
+
+            function onResize() {
+                onMouseLeave();
+                const { back } = getCurrentImages();
+                if (back) { back.style.maskImage = 'none'; back.style.webkitMaskImage = 'none'; back.style.opacity = '0'; }
+            }
+
+            if (hero) {
+                hero.addEventListener('mousemove', onMouseMove);
+                hero.addEventListener('mouseleave', onMouseLeave);
+                hero.addEventListener('mouseenter', onMouseEnter);
+                window.addEventListener('resize', onResize);
+                animateCursor();
+            }
+
+            // ========== MÚSICA COM PLAY/PAUSE (jingle.mp3) ==========
+            const bgMusic = document.getElementById('bgMusic');
+            const musicBtn = document.getElementById('musicToggleBtn');
+            let musicPlaying = false;
+
+            function updateMusicButton(playing) {
+                if (playing) {
+                    musicBtn.innerHTML = '⏸';
+                    musicBtn.style.background = 'rgba(255,255,255,0.35)';
+                } else {
+                    musicBtn.innerHTML = '▶';
+                    musicBtn.style.background = 'rgba(255,255,255,0.2)';
+                }
+            }
+
+            function initMusic() {
+                bgMusic.volume = 0.4;
+                bgMusic.loop = true;
+                musicBtn.addEventListener('click', () => {
+                    if (musicPlaying) {
+                        bgMusic.pause();
+                        musicPlaying = false;
+                        updateMusicButton(false);
+                    } else {
+                        bgMusic.play().then(() => {
+                            musicPlaying = true;
+                            updateMusicButton(true);
+                        }).catch((err) => {
+                            console.log("Erro ao reproduzir:", err);
+                            alert("Clique novamente para ativar o jingle da campanha.");
+                        });
+                    }
+                });
+                bgMusic.play().then(() => {
+                    musicPlaying = true;
+                    updateMusicButton(true);
+                }).catch(() => {
+                    console.log("Autoplay bloqueado, aguardando clique do usuário");
+                });
+            }
+
+            // ========== SCROLL ANIMATION ==========
+            const animatedElements = document.querySelectorAll('.bio-section, .section');
+            
+            function checkVisibility() {
+                animatedElements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    if (rect.top < windowHeight - 100) {
+                        el.classList.add('visible');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', checkVisibility);
+            window.addEventListener('load', checkVisibility);
+            checkVisibility();
+
+            renderGallery();
+            renderNews();
+            initMusic();
+        })();
+    </script>
+</body>
+</html>
