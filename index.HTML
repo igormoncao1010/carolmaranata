@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Carol Maranata - Deputada Estadual | Maranhão 2026</title>
+    <title>Carol Maranata - Pré-Candidata a Deputada Estadual | Maranhão 2026</title>
     <style>
         * {
             margin: 0;
@@ -13,35 +13,37 @@
 
         body {
             font-family: 'Poppins', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #f0f4f8;
+            background: #F5F7FA;
             color: #1e2a3a;
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
         :root {
-            --primary: #3780C1;
-            --primary-dark: #2a669b;
-            --primary-light: #5c9ad1;
-            --white: #ffffff;
-            --soft-blue: #e8f0f9;
-            --border-light: #d4e0ec;
-            --text-dark: #1e3a4d;
-            --text-soft: #4a627a;
-            --shadow-sm: 0 8px 20px rgba(55, 128, 193, 0.1);
+            --blue: #1E88E5;
+            --blue-dark: #1565C0;
+            --gold: #F9A825;
+            --gold-dark: #EF6C00;
+            --green: #43A047;
+            --green-dark: #2E7D32;
+            --white: #FFFFFF;
+            --gray-light: #F8F9FA;
+            --gray-border: #E9ECEF;
+            --text-dark: #2C3E50;
+            --text-soft: #5D6D7E;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
 
-        /* menu azul #3780C1 */
+        /* menu */
         .menu {
             position: fixed;
             top: 0;
             width: 100%;
-            background: #3780C1;
+            background: var(--blue);
             padding: 14px 32px;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
+            border-bottom: 3px solid var(--gold);
+            box-shadow: var(--shadow);
         }
 
         .menu-content {
@@ -71,8 +73,8 @@
         }
 
         .music-button {
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            background: var(--gold);
+            border: none;
             width: 44px;
             height: 44px;
             border-radius: 50%;
@@ -81,13 +83,15 @@
             justify-content: center;
             cursor: pointer;
             transition: all 0.2s;
-            color: white;
+            color: var(--blue-dark);
             font-size: 18px;
+            font-weight: bold;
         }
 
         .music-button:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.02);
+            background: var(--gold-dark);
+            transform: scale(1.05);
+            color: white;
         }
 
         /* HERO COM EFEITO MOUSE */
@@ -146,14 +150,13 @@
             width: 110px;
             height: 110px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.1) 60%, transparent 85%);
-            border: 2px solid rgba(255, 255, 255, 0.7);
+            background: radial-gradient(circle, rgba(249, 168, 37, 0.4) 0%, rgba(30, 136, 229, 0.2) 60%, transparent 85%);
+            border: 2px solid var(--gold);
             pointer-events: none;
             z-index: 5;
             transform: translate(-50%, -50%) scale(1);
             opacity: 0;
             transition: opacity 0.2s;
-            box-shadow: 0 0 25px rgba(55, 128, 193, 0.5);
         }
 
         .cursor-halo {
@@ -165,7 +168,7 @@
             z-index: 4;
             transform: translate(-50%, -50%);
             opacity: 0;
-            background: radial-gradient(circle, rgba(55, 128, 193, 0.25) 0%, rgba(55, 128, 193, 0.08) 70%, transparent 95%);
+            background: radial-gradient(circle, rgba(30, 136, 229, 0.2) 0%, rgba(67, 160, 71, 0.1) 70%, transparent 95%);
             filter: blur(5px);
         }
 
@@ -186,7 +189,7 @@
             .cursor-halo { width: 120px; height: 120px; }
         }
 
-        /* SEÇÃO BIOGRAFIA - NOVO CONTEÚDO (empreendedora, produtora, Arrocha Brasil) */
+        /* SEÇÃO BIOGRAFIA */
         .bio-section {
             padding: 80px 24px;
             max-width: 1280px;
@@ -206,10 +209,10 @@
             align-items: center;
             gap: 60px;
             background: var(--white);
-            border-radius: 48px;
+            border-radius: 32px;
             overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--gray-border);
         }
 
         .bio-image {
@@ -228,19 +231,19 @@
 
         .bio-content h2 {
             font-size: 2.2rem;
-            color: var(--primary);
+            color: var(--blue);
             margin-bottom: 20px;
             font-weight: 600;
         }
 
         .bio-content .tag {
             display: inline-block;
-            background: var(--primary);
-            color: white;
+            background: var(--gold);
+            color: #2c2c2c;
             padding: 6px 18px;
-            border-radius: 50px;
+            border-radius: 30px;
             font-size: 0.8rem;
-            font-weight: 500;
+            font-weight: 600;
             margin-bottom: 24px;
         }
 
@@ -253,27 +256,221 @@
         }
 
         .bio-highlight {
-            background: var(--soft-blue);
+            background: #FEF5E7;
             padding: 20px 24px;
-            border-radius: 24px;
+            border-radius: 20px;
             margin-top: 24px;
-            border-left: 4px solid var(--primary);
+            border-left: 4px solid var(--gold);
         }
 
         .bio-highlight p {
             text-align: justify;
             font-style: italic;
             margin-bottom: 0;
+            color: var(--text-dark);
         }
 
         @media (max-width: 900px) {
             .bio-container { flex-direction: column; border-radius: 32px; }
-            .bio-image { width: 100%; min-height: 380px; border-radius: 32px 32px 0 0; background-position: center 20%; }
+            .bio-image { width: 100%; min-height: 380px; border-radius: 32px 32px 0 0; }
             .bio-content { padding: 32px; }
             .bio-content h2 { font-size: 1.8rem; }
         }
 
-        /* seções gerais com animação scroll */
+        /* SEÇÃO CAMPANHA */
+        .campaign-section {
+            padding: 80px 24px;
+            max-width: 1280px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+
+        .campaign-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .campaign-container {
+            background: linear-gradient(135deg, var(--white) 0%, #FEF9F0 100%);
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--gold);
+        }
+
+        .campaign-header {
+            background: var(--blue);
+            padding: 32px 40px;
+            text-align: center;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .campaign-header h2 {
+            color: white;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .campaign-header p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+        }
+
+        .campaign-content {
+            padding: 48px 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+
+        .campaign-proposals {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--gray-border);
+        }
+
+        .campaign-proposals h3 {
+            color: var(--blue);
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            font-weight: 600;
+            border-left: 4px solid var(--gold);
+            padding-left: 16px;
+        }
+
+        .proposal-list {
+            list-style: none;
+        }
+
+        .proposal-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 20px;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-border);
+        }
+
+        .proposal-icon {
+            min-width: 32px;
+            height: 32px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blue-dark);
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .proposal-text {
+            flex: 1;
+        }
+
+        .proposal-text strong {
+            color: var(--blue-dark);
+            font-size: 1rem;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .proposal-text p {
+            color: var(--text-soft);
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        .campaign-cta {
+            background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+            border-radius: 24px;
+            padding: 32px;
+            text-align: center;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .campaign-cta h3 {
+            font-size: 1.8rem;
+            margin-bottom: 16px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .campaign-cta p {
+            margin-bottom: 24px;
+            line-height: 1.5;
+            color: white;
+        }
+
+        .btn-campaign {
+            display: inline-block;
+            background: var(--gold);
+            color: var(--blue-dark);
+            text-decoration: none;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-campaign:hover {
+            background: var(--gold-dark);
+            transform: scale(1.02);
+            color: white;
+        }
+
+        .campaign-numbers {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .number-item {
+            text-align: center;
+        }
+
+        .number-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .number-label {
+            font-size: 0.8rem;
+            color: white;
+        }
+
+        @media (max-width: 900px) {
+            .campaign-content {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                padding: 32px 24px;
+            }
+            .campaign-header {
+                padding: 24px 20px;
+            }
+            .campaign-header h2 {
+                font-size: 1.6rem;
+            }
+            .campaign-cta h3 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* seções gerais */
         .section {
             padding: 80px 24px;
             max-width: 1280px;
@@ -290,10 +487,20 @@
 
         .section-title {
             text-align: center;
-            font-size: 2.4rem;
-            font-weight: 500;
+            font-size: 2.2rem;
+            font-weight: 600;
             margin-bottom: 0.75rem;
-            color: var(--primary);
+            color: var(--blue);
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--gold);
+            margin: 12px auto 0;
+            border-radius: 2px;
         }
 
         .section-sub {
@@ -311,27 +518,27 @@
         }
 
         .gallery-item {
-            border-radius: 28px;
+            border-radius: 24px;
             overflow: hidden;
             cursor: pointer;
-            transition: all 0.35s ease;
+            transition: all 0.3s ease;
             aspect-ratio: 4 / 3;
             background: var(--white);
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--gray-border);
         }
 
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.4s ease;
         }
 
         .gallery-item:hover {
-            transform: translateY(-8px);
-            border-color: var(--primary);
-            box-shadow: 0 20px 30px -12px rgba(55, 128, 193, 0.25);
+            transform: translateY(-6px);
+            border-color: var(--gold);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
         }
 
         .gallery-item:hover img {
@@ -339,12 +546,12 @@
         }
 
         .gallery-caption {
-            padding: 16px 20px;
+            padding: 14px 18px;
             background: var(--white);
             font-size: 0.85rem;
             font-weight: 500;
-            color: var(--primary-dark);
-            border-top: 1px solid var(--border-light);
+            color: var(--blue-dark);
+            border-top: 1px solid var(--gray-border);
             text-align: center;
         }
 
@@ -357,17 +564,17 @@
 
         .news-card {
             background: var(--white);
-            border-radius: 28px;
+            border-radius: 24px;
             overflow: hidden;
             transition: all 0.3s;
-            border: 1px solid var(--border-light);
-            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-border);
+            box-shadow: var(--shadow);
         }
 
         .news-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--primary);
-            box-shadow: 0 20px 30px -12px rgba(55, 128, 193, 0.2);
+            transform: translateY(-5px);
+            border-color: var(--gold);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
         }
 
         .news-img {
@@ -382,18 +589,18 @@
 
         .news-date {
             font-size: 0.7rem;
-            color: var(--primary);
+            color: var(--gold-dark);
             margin-bottom: 10px;
-            font-weight: 500;
+            font-weight: 600;
             letter-spacing: 0.5px;
             text-transform: uppercase;
         }
 
         .news-title {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             margin-bottom: 12px;
             font-weight: 600;
-            color: var(--primary-dark);
+            color: var(--blue-dark);
         }
 
         .news-excerpt {
@@ -405,9 +612,9 @@
         }
 
         .read-more {
-            color: var(--primary);
+            color: var(--green);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             display: inline-flex;
             align-items: center;
             gap: 6px;
@@ -416,6 +623,7 @@
 
         .read-more:hover {
             gap: 10px;
+            color: var(--gold-dark);
         }
 
         .lightbox {
@@ -442,7 +650,8 @@
             max-width: 90vw;
             max-height: 85vh;
             object-fit: contain;
-            border-radius: 24px;
+            border-radius: 16px;
+            border: 2px solid var(--gold);
         }
 
         .lightbox-close {
@@ -450,19 +659,19 @@
             top: 28px;
             right: 36px;
             font-size: 2.5rem;
-            color: white;
+            color: var(--gold);
             background: none;
             border: none;
             cursor: pointer;
         }
 
-        /* FOOTER ESCURO COM FONTES CLARAS */
+        /* FOOTER */
         .footer {
-            background: #0f172a;
+            background: #1A374D;
             text-align: center;
             padding: 48px 24px 32px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #cbd5e1;
+            border-top: 3px solid var(--gold);
+            color: #D4E6F1;
             font-size: 0.9rem;
         }
 
@@ -478,35 +687,21 @@
         .footer .credit {
             margin-top: 20px;
             font-size: 0.85rem;
-            letter-spacing: 0.3px;
         }
 
         .footer .credit a {
             text-decoration: none;
             font-weight: 600;
-            display: inline-block;
-            animation: pulseRed 1.2s ease-in-out infinite;
+            color: var(--gold);
             transition: all 0.2s;
         }
 
         .footer .credit a:hover {
-            animation: none;
-            transform: scale(1.05);
-            text-shadow: 0 0 8px rgba(255, 100, 100, 0.5);
+            color: var(--gold-dark);
+            text-decoration: underline;
         }
 
-        @keyframes pulseRed {
-            0%, 100% {
-                color: #ff6b6b;
-                text-shadow: 0 0 2px rgba(255, 107, 107, 0.5);
-            }
-            50% {
-                color: #ffd966;
-                text-shadow: 0 0 6px rgba(255, 217, 102, 0.8);
-            }
-        }
-
-        /* Botão flutuante do WhatsApp com ícone */
+        /* Botão flutuante do WhatsApp */
         .whatsapp-float {
             position: fixed;
             bottom: 28px;
@@ -520,9 +715,10 @@
             justify-content: center;
             text-decoration: none;
             color: white;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+            box-shadow: var(--shadow);
             z-index: 1100;
             transition: 0.2s;
+            border: 2px solid var(--gold);
         }
 
         .whatsapp-float:hover {
@@ -540,7 +736,8 @@
             .menu { padding: 12px 20px; }
             .logo-image { height: 44px; }
             .section { padding: 60px 20px; }
-            .section-title { font-size: 1.9rem; }
+            .campaign-section { padding: 60px 20px; }
+            .section-title { font-size: 1.8rem; }
             .bio-section { padding: 60px 20px; }
             .footer { padding: 36px 20px 28px; }
             .whatsapp-float { width: 50px; height: 50px; bottom: 20px; right: 20px; }
@@ -552,7 +749,7 @@
     <nav class="menu">
         <div class="menu-content">
             <div class="logo-image">
-                <img src="logo.png" alt="Carol Maranata" onerror="this.src='https://placehold.co/200x60/3780C1/white?text=Carol+Maranata'">
+                <img src="logo.png" alt="Carol Maranata" onerror="this.src='https://placehold.co/200x60/1E88E5/white?text=Carol+Maranata'">
             </div>
             <button class="music-button" id="musicToggleBtn">▶</button>
         </div>
@@ -568,7 +765,7 @@
         <div class="cursor-halo" id="cursorHalo"></div>
     </div>
 
-    <!-- SEÇÃO BIOGRAFIA ATUALIZADA: Carol Maranata, empreendedora, produtora de eventos, Arrocha Brasil -->
+    <!-- SEÇÃO BIOGRAFIA -->
     <section class="bio-section" id="bioSection">
         <div class="bio-container">
             <div class="bio-image"></div>
@@ -585,17 +782,81 @@
         </div>
     </section>
 
+    <!-- SEÇÃO CAMPANHA PRÉ-CANDIDATA DEPUTADA ESTADUAL -->
+    <section class="campaign-section" id="campaignSection">
+        <div class="campaign-container">
+            <div class="campaign-header">
+                <h2>Carol Maranata 2026</h2>
+                <p>Pré-candidata a Deputada Estadual do Maranhão</p>
+            </div>
+            <div class="campaign-content">
+                <div class="campaign-proposals">
+                    <h3>Compromissos com o Maranhão</h3>
+                    <ul class="proposal-list">
+                        <li>
+                            <div class="proposal-icon">1</div>
+                            <div class="proposal-text">
+                                <strong>Cultura e Empreendedorismo</strong>
+                                <p>Ampliar programas de incentivo à cultura, fomentar festivais regionais e apoiar pequenos empreendedores do setor artístico.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="proposal-icon">2</div>
+                            <div class="proposal-text">
+                                <strong>Educação e Juventude</strong>
+                                <p>Investir em escolas de tempo integral, qualificação profissional e programas que mantenham os jovens no estado.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="proposal-icon">3</div>
+                            <div class="proposal-text">
+                                <strong>Saúde Preventiva</strong>
+                                <p>Ampliar atendimento nas unidades básicas, levar especialistas para o interior e criar mutirões de saúde itinerantes.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="proposal-icon">4</div>
+                            <div class="proposal-text">
+                                <strong>Desenvolvimento Social</strong>
+                                <p>Gerar emprego e renda através do fortalecimento do turismo cultural e da economia criativa no Maranhão.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="campaign-cta">
+                    <h3>Participe desta jornada</h3>
+                    <p>Sua voz é fundamental. Carol Maranata é a força da cultura, da música e do empreendedorismo pronta para representar o povo maranhense na Assembleia Legislativa.</p>
+                    <a href="https://wa.me/5598999999999?text=Quero%20apoiar%20Carol%20Maranata%20para%20Deputada%20Estadual" class="btn-campaign" target="_blank">Quero apoiar a campanha</a>
+                    <div class="campaign-numbers">
+                        <div class="number-item">
+                            <div class="number-value">+50</div>
+                            <div class="number-label">movimentos apoiadores</div>
+                        </div>
+                        <div class="number-item">
+                            <div class="number-value">+3mil</div>
+                            <div class="number-label">voluntários ativos</div>
+                        </div>
+                        <div class="number-item">
+                            <div class="number-value">15+</div>
+                            <div class="number-label">cidades mobilizadas</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- GALERIA DE FOTOS -->
     <section class="section" id="galeria">
         <h2 class="section-title">Galeria de Fotos</h2>
-        <p class="section-sub">Caminhada com o povo maranhense</p>
+        <p class="section-sub">Registros da trajetória de Carol Maranata</p>
         <div class="gallery-grid" id="galleryContainer"></div>
     </section>
 
-    <!-- ÚLTIMAS NOTÍCIAS - CONTEÚDO ORIGINAL RESTAURADO -->
+    <!-- ÚLTIMAS NOTÍCIAS -->
     <section class="section" id="noticias">
         <h2 class="section-title">Últimas Notícias</h2>
-        <p class="section-sub">Acompanhe a campanha de Carol Maranata</p>
+        <p class="section-sub">Acompanhe a campanha de Carol Maranata para Deputada Estadual</p>
         <div class="news-grid" id="newsContainer"></div>
     </section>
 
@@ -605,33 +866,32 @@
         <img class="lightbox-img" id="lightboxImg" src="" alt="">
     </div>
 
-    <!-- FOOTER ESCURO COM CRÉDITO PULSANTE - CORRIGIDO PARA DEPUTADA ESTADUAL -->
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-content">
-            <p>Carol Maranata 2026 - Deputada Estadual | 💙 Cultura, empreendedorismo e transformação social</p>
+            <p>Carol Maranata 2026 - Pré-candidata a Deputada Estadual | Cultura, empreendedorismo e transformação social</p>
             <p style="margin-top: 8px;">Comitê Carol Maranata • @carolmaranata_oficial</p>
             <div class="credit">
                 Criado por 
-                <a href="https://www.behance.net/igorfermon/projects" target="_blank" style="color: #ff6b6b; text-decoration: none;">Igor Monção</a>
+                <a href="https://www.behance.net/igorfermon/projects" target="_blank">Igor Monção</a>
             </div>
         </div>
     </footer>
 
-    <!-- Botão flutuante do WhatsApp com ícone SVG -->
-    <a href="https://wa.me/5598999999999?text=Olá!%20Quero%20apoiar%20Carol%20Maranata%202026" class="whatsapp-float" target="_blank">
+    <!-- Botão flutuante do WhatsApp -->
+    <a href="https://wa.me/5598999999999?text=Olá!%20Quero%20apoiar%20Carol%20Maranata%20para%20Deputada%20Estadual%202026" class="whatsapp-float" target="_blank">
         <svg viewBox="0 0 24 24" fill="currentColor">
             <path d="M16.75 13.96c.25.13.41.2.46.3.06.11.04.61-.21 1.18-.2.56-1.24 1.1-1.7 1.12-.46.02-.47.36-2.96-.73-2.49-1.09-3.99-3.75-4.11-3.92-.12-.17-.96-1.38-.92-2.61.05-1.22.69-1.8.95-2.04.24-.26.51-.29.68-.26h.47c.15 0 .36-.06.55.45l.69 1.87c.06.13.1.28.01.44l-.27.41-.39.42c-.12.12-.26.25-.12.5.12.26.62-1.09 1.32-1.78.91-.88 1.71-1.17 1.95-1.3.24-.14.39-.12.54-.04l.81-.94c.19-.25.35-.19.58-.11l1.67.88M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10c-1.97 0-3.8-.57-5.35-1.55L2 22l1.55-4.65A9.96 9.96 0 0 1 2 12 10 10 0 0 1 12 2m0 2a8 8 0 0 0-8 8c0 1.72.54 3.31 1.46 4.61L4.5 19.5l2.89-.96A7.95 7.95 0 0 0 12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8z"/>
         </svg>
     </a>
 
-    <!-- ÁUDIO LOCAL jingle.mp3 -->
     <audio id="bgMusic" loop preload="auto">
         <source src="jingle.mp3" type="audio/mpeg">
     </audio>
 
     <script>
         (function() {
-            // Galeria de fotos mantida com temática cultural/eventos
+            // Galeria de fotos
             const galleryImages = [
                 { src: "https://images.pexels.com/photos/7095503/pexels-photo-7095503.jpeg?auto=compress&cs=tinysrgb&w=800", caption: "Carol Maranata em lançamento do Arrocha Brasil" },
                 { src: "https://images.pexels.com/photos/7697263/pexels-photo-7697263.jpeg?auto=compress&cs=tinysrgb&w=800", caption: "Produção de evento cultural na Bahia" },
@@ -641,13 +901,13 @@
                 { src: "https://images.pexels.com/photos/6256126/pexels-photo-6256126.jpeg?auto=compress&cs=tinysrgb&w=800", caption: "Carol ao lado de empreendedores do setor musical" }
             ];
 
-            // NOTÍCIAS RESTAURADAS: versão original da campanha (primeira vez deputada estadual)
+            // NOTÍCIAS
             const newsData = [
                 {
                     img: "06.png",
                     date: "20 de Março, 2026",
-                    title: "Carol Maranata oficializa candidatura: 'Uma nova esperança para o Maranhão'",
-                    excerpt: "Pela primeira vez na disputa por uma vaga na Assembleia Legislativa, Carol Maranata registrou sua candidatura com o apoio de mais de 50 movimentos sociais. 'Estou aqui para representar quem nunca teve voz', declarou."
+                    title: "Carol Maranata oficializa pré-candidatura: 'Uma nova esperança para o Maranhão'",
+                    excerpt: "Pela primeira vez na disputa por uma vaga na Assembleia Legislativa, Carol Maranata registrou sua pré-candidatura com o apoio de mais de 50 movimentos sociais. 'Estou aqui para representar quem nunca teve voz', declarou."
                 },
                 {
                     img: "https://images.pexels.com/photos/6457565/pexels-photo-6457565.jpeg?auto=compress&cs=tinysrgb&w=800",
@@ -659,7 +919,7 @@
                     img: "https://portalcorreio.com.br/portalcorreio/wp-content/uploads/2019/08/emprego.jpg",
                     date: "5 de Março, 2026",
                     title: "Carol lança plataforma 'Maranhão de Primeira' com propostas inovadoras",
-                    excerpt: "A candidata, que disputa seu primeiro mandato estadual, apresentou eixos prioritários: geração de emprego, educação de qualidade e saúde preventiva. 'Vamos fazer diferente, sem velhos vícios', destacou."
+                    excerpt: "A pré-candidata apresentou eixos prioritários: geração de emprego, educação de qualidade e saúde preventiva. 'Vamos fazer diferente, sem velhos vícios', destacou."
                 }
             ];
 
@@ -710,7 +970,7 @@
                     article.innerHTML = `
                         <img class="news-img" src="${item.img}" alt="notícia" loading="lazy">
                         <div class="news-content">
-                            <div class="news-date">📅 ${item.date}</div>
+                            <div class="news-date">${item.date}</div>
                             <h3 class="news-title">${item.title}</h3>
                             <p class="news-excerpt">${item.excerpt}</p>
                             <a href="#" class="read-more">Ler matéria completa →</a>
@@ -719,13 +979,13 @@
                     const readLink = article.querySelector('.read-more');
                     readLink.addEventListener('click', (e) => {
                         e.preventDefault();
-                        alert(`💙 ${item.title}\nAcesse nosso site oficial para mais informações sobre a campanha de Carol Maranata para Deputada Estadual.`);
+                        alert(`${item.title}\nAcesse nosso site oficial para mais informações sobre a campanha de Carol Maranata para Deputada Estadual.`);
                     });
                     newsContainer.appendChild(article);
                 });
             }
 
-            // ========== EFEITO MOUSE HERO ==========
+            // EFEITO MOUSE HERO
             const hero = document.getElementById('heroSection');
             const frontDesktop = document.getElementById('frontImageDesktop');
             const backDesktop = document.getElementById('backImageDesktop');
@@ -822,7 +1082,7 @@
                 animateCursor();
             }
 
-            // ========== MÚSICA COM PLAY/PAUSE (jingle.mp3) ==========
+            // MÚSICA
             const bgMusic = document.getElementById('bgMusic');
             const musicBtn = document.getElementById('musicToggleBtn');
             let musicPlaying = false;
@@ -830,10 +1090,8 @@
             function updateMusicButton(playing) {
                 if (playing) {
                     musicBtn.innerHTML = '⏸';
-                    musicBtn.style.background = 'rgba(255,255,255,0.35)';
                 } else {
                     musicBtn.innerHTML = '▶';
-                    musicBtn.style.background = 'rgba(255,255,255,0.2)';
                 }
             }
 
@@ -863,9 +1121,8 @@
                 });
             }
 
-            // ========== SCROLL ANIMATION ==========
-            const animatedElements = document.querySelectorAll('.bio-section, .section');
-            
+            // SCROLL ANIMATION
+            const animatedElements = document.querySelectorAll('.bio-section, .campaign-section, .section');
             function checkVisibility() {
                 animatedElements.forEach(el => {
                     const rect = el.getBoundingClientRect();
